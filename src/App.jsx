@@ -1,18 +1,16 @@
 import { organizationName, mainTitle, coursesData } from './data/coursesData';
-
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Courses from './components/Courses';
+import './index.css';
 const App = () => {
   return (
     <div className="reference-home">
-      <h1>{mainTitle}</h1>
-      <h2>{organizationName}</h2>
-      <p>Количество курсов: {coursesData.length}</p>
-      <ul>
-        {coursesData.map((course) => (
-          <li key={course.id}>
-            {course.title} — {course.price}
-          </li>
-        ))}
-      </ul>
+       <Header orgName={organizationName} />
+      <main>
+        <Hero title={mainTitle} orgName={organizationName} />
+        <Courses courses={coursesData} />
+      </main>
     </div>
   );
 };
